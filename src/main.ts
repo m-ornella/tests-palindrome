@@ -27,3 +27,18 @@ if (word.toLowerCase() === reversed.toLowerCase()) {
   console.log("Bien dit !");
 }
 
+// Aurevoir en fonction du moment de la journée
+
+function farewellMessage() {
+  const hour = new Date().getHours();
+
+  if (hour < 12) {
+    return "Bonne journée !";
+  } else if (hour < 18) {
+    return "Bon après-midi !";
+  } else {
+    return "Bonne soirée !";
+  }
+}
+
+console.log(farewellMessage());
