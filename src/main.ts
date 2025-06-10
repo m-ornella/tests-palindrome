@@ -21,3 +21,9 @@ if (!word) {
 const reversed = word.split('').reverse().join('');
 console.log(reversed);
 
+// palindrome
+
+if (word.toLowerCase() === reversed.toLowerCase()) {
+  console.log("Bien dit !");
+}
+
