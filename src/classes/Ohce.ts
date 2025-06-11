@@ -4,6 +4,10 @@ class Ohce {
     const reversed = sanitized.split('').reverse().join('');
     return sanitized === reversed;
   }
+
+  public reverseWord(input: string): string {
+  return input.split('').reverse().join('');
+  }
 }
 
 export default Ohce;
