@@ -2,14 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class Ohce {
     Palindrome(input) {
+        const greeting = this.helloGreeting();
+        const reversed = this.reverseWord(input);
         const sanitized = input.toLowerCase().replace(/[^a-z0-9]/g, '');
-        const reversed = sanitized.split('').reverse().join('');
-        if (sanitized === reversed) {
-            return 'bien dit!';
-        }
-        else {
-            return 'pas palindrome';
-        }
+        const reversedSanitized = sanitized.split('').reverse().join('');
+        const palindromeMessage = sanitized === reversedSanitized ? 'bien dit!' : 'pas palindrome';
+        const farewell = this.byeGreeting();
+        return `${greeting}\n${reversed}\n${palindromeMessage}\n${farewell}`;
     }
     reverseWord(input) {
         return input.split('').reverse().join('');

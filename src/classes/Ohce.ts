@@ -1,19 +1,22 @@
 class Ohce {
  public Palindrome(input: string): string {
+  const greeting = this.helloGreeting();
+    const reversed = this.reverseWord(input);
+    
     const sanitized = input.toLowerCase().replace(/[^a-z0-9]/g, '');
-    const reversed = sanitized.split('').reverse().join('');
-    if (sanitized === reversed) {
-     return 'bien dit!';
-    } else {
-     return 'pas palindrome';
-    }
+    const reversedSanitized = sanitized.split('').reverse().join('');
+    const palindromeMessage = sanitized === reversedSanitized ? 'bien dit!' : 'pas palindrome';
+
+    const farewell = this.byeGreeting();
+
+    return `${greeting}\n${reversed}\n${palindromeMessage}\n${farewell}`;
 }
 
-  public reverseWord(input: string): string {
+  private reverseWord(input: string): string {
     return input.split('').reverse().join('');
   }
 
-  public helloGreeting(): string {
+  private helloGreeting(): string {
     const hour = new Date().getHours();
     if (hour >= 6 && hour < 18) {
       return "Bonjour";
@@ -22,7 +25,7 @@ class Ohce {
     }
   }
 
-  public byeGreeting(): string {
+  private byeGreeting(): string {
     const hour = new Date().getHours();
     if (hour >= 6 && hour < 18) {
       return "Bonne journée";

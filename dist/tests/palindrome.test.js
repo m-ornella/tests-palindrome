@@ -5,59 +5,37 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const globals_1 = require("@jest/globals");
 const Ohce_1 = __importDefault(require("../classes/Ohce"));
-(0, globals_1.describe)('Palindrome', () => {
-    (0, globals_1.it)('should return "bien dit!" for "kayak"', () => {
-        const utils = new Ohce_1.default();
-        (0, globals_1.expect)(utils.Palindrome('kayak')).toBe('bien dit!');
-    });
-    (0, globals_1.it)('should return "pas palindrome" for "plastique"', () => {
-        const utils = new Ohce_1.default();
-        (0, globals_1.expect)(utils.Palindrome('plastique')).toBe('pas palindrome');
-    });
-});
-(0, globals_1.describe)('reversed word', () => {
-    const ohce = new Ohce_1.default();
-    test('reverseWord should return the reversed input string', () => {
-        (0, globals_1.expect)(ohce.reverseWord('hello')).toBe('olleh');
-        (0, globals_1.expect)(ohce.reverseWord('palindrome')).toBe('emordnilap');
-        (0, globals_1.expect)(ohce.reverseWord('12345')).toBe('54321');
-    });
-});
-(0, globals_1.describe)('bonjour', () => {
+(0, globals_1.describe)('Palindrome()', () => {
     let ohce;
-    beforeEach(() => {
+    (0, globals_1.beforeEach)(() => {
         ohce = new Ohce_1.default();
     });
-    (0, globals_1.it)('should say Bonjour during the day', () => {
-        jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
-        (0, globals_1.expect)(ohce.helloGreeting()).toBe('Bonjour');
+    (0, globals_1.afterEach)(() => {
+        globals_1.jest.restoreAllMocks();
     });
-    (0, globals_1.it)('should say Bonsoir during the night', () => {
-        jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
-        (0, globals_1.expect)(ohce.helloGreeting()).toBe('Bonsoir');
+    (0, globals_1.it)('should return full response with "bien dit!" for a palindrome during the day', () => {
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10); // Jour
+        const result = ohce.Palindrome('kayak');
+        (0, globals_1.expect)(result).toContain('Bonjour');
+        (0, globals_1.expect)(result).toContain('kayak');
+        (0, globals_1.expect)(result).toContain('bien dit!');
+        (0, globals_1.expect)(result).toContain('Bonne journée');
     });
-});
-(0, globals_1.describe)('bien dit', () => {
-    (0, globals_1.it)('should return true for "kayak"', () => {
-        const utils = new Ohce_1.default();
-        (0, globals_1.expect)(utils.Palindrome('kayak')).toBe('bien dit!');
+    (0, globals_1.it)('should return full response with "pas palindrome" during the night', () => {
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22); // Soirée
+        const result = ohce.Palindrome('plastique');
+        (0, globals_1.expect)(result).toContain('Bonsoir');
+        (0, globals_1.expect)(result).toContain('euqitsalp'); // mot inversé
+        (0, globals_1.expect)(result).toContain('pas palindrome');
+        (0, globals_1.expect)(result).toContain('Bonne soirée');
     });
-});
-(0, globals_1.describe)('au revoir', () => {
-    let ohce;
-    beforeEach(() => {
-        ohce = new Ohce_1.default();
-    });
-    afterEach(() => {
-        jest.restoreAllMocks();
-    });
-    (0, globals_1.it)('should say "Bonne journée" during the day', () => {
-        jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
-        (0, globals_1.expect)(ohce.byeGreeting()).toBe('Bonne journée');
-    });
-    (0, globals_1.it)('should say "Bonne soirée" during the evening/night', () => {
-        jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
-        (0, globals_1.expect)(ohce.byeGreeting()).toBe('Bonne soirée');
+    (0, globals_1.it)('should return correct reversed string and greetings for numeric palindrome', () => {
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(14); // Jour
+        const result = ohce.Palindrome('12321');
+        (0, globals_1.expect)(result).toContain('Bonjour');
+        (0, globals_1.expect)(result).toContain('12321');
+        (0, globals_1.expect)(result).toContain('bien dit!');
+        (0, globals_1.expect)(result).toContain('Bonne journée');
     });
 });
 //# sourceMappingURL=palindrome.test.js.map
