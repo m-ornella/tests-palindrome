@@ -14,7 +14,7 @@ const Ohce_1 = __importDefault(require("../classes/Ohce"));
         globals_1.jest.restoreAllMocks();
     });
     (0, globals_1.it)('should return full response with "bien dit!" for a palindrome during the day', () => {
-        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10); // Jour
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
         const result = ohce.Palindrome('kayak');
         (0, globals_1.expect)(result).toContain('Bonjour');
         (0, globals_1.expect)(result).toContain('kayak');
@@ -22,15 +22,15 @@ const Ohce_1 = __importDefault(require("../classes/Ohce"));
         (0, globals_1.expect)(result).toContain('Bonne journée');
     });
     (0, globals_1.it)('should return full response with "pas palindrome" during the night', () => {
-        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22); // Soirée
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
         const result = ohce.Palindrome('plastique');
         (0, globals_1.expect)(result).toContain('Bonsoir');
-        (0, globals_1.expect)(result).toContain('euqitsalp'); // mot inversé
+        (0, globals_1.expect)(result).toContain('euqitsalp');
         (0, globals_1.expect)(result).toContain('pas palindrome');
         (0, globals_1.expect)(result).toContain('Bonne soirée');
     });
     (0, globals_1.it)('should return correct reversed string and greetings for numeric palindrome', () => {
-        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(14); // Jour
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(14);
         const result = ohce.Palindrome('12321');
         (0, globals_1.expect)(result).toContain('Bonjour');
         (0, globals_1.expect)(result).toContain('12321');

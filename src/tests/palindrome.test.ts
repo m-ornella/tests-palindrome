@@ -13,7 +13,7 @@ describe('Palindrome()', () => {
   });
 
   it('should return full response with "bien dit!" for a palindrome during the day', () => {
-    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10); // Jour
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
     const result = ohce.Palindrome('kayak');
     expect(result).toContain('Bonjour');
     expect(result).toContain('kayak');
@@ -22,16 +22,16 @@ describe('Palindrome()', () => {
   });
 
   it('should return full response with "pas palindrome" during the night', () => {
-    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22); // Soirée
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22); 
     const result = ohce.Palindrome('plastique');
     expect(result).toContain('Bonsoir');
-    expect(result).toContain('euqitsalp'); // mot inversé
+    expect(result).toContain('euqitsalp'); 
     expect(result).toContain('pas palindrome');
     expect(result).toContain('Bonne soirée');
   });
 
   it('should return correct reversed string and greetings for numeric palindrome', () => {
-    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(14); // Jour
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(14); 
     const result = ohce.Palindrome('12321');
     expect(result).toContain('Bonjour');
     expect(result).toContain('12321');
