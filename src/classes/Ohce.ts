@@ -13,7 +13,7 @@ class Ohce {
     return input.split('').reverse().join('');
   }
 
-  public greeting(): string {
+  public helloGreeting(): string {
     const hour = new Date().getHours();
     if (hour >= 6 && hour < 18) {
       return "Bonjour";
@@ -22,6 +22,14 @@ class Ohce {
     }
   }
 
+  public byeGreeting(): string {
+    const hour = new Date().getHours();
+    if (hour >= 6 && hour < 18) {
+      return "Bonne journée";
+    } else {
+      return "Bonne soirée";
+    }
+  }
 }
 
 export default Ohce;

@@ -34,12 +34,12 @@ describe('bonjour', () => {
 
   it('should say Bonjour during the day', () => {
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
-    expect(ohce.greeting()).toBe('Bonjour');
+    expect(ohce.helloGreeting()).toBe('Bonjour');
   });
 
   it('should say Bonsoir during the night', () => {
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
-    expect(ohce.greeting()).toBe('Bonsoir');
+    expect(ohce.helloGreeting()).toBe('Bonsoir');
   });
 });
 
@@ -47,5 +47,27 @@ describe('bien dit', () => {
   it('should return true for "kayak"', () => {
     const utils = new Ohce();
     expect(utils.Palindrome('kayak')).toBe('bien dit!');
+  });
+});
+
+describe('au revoir', () => {
+  let ohce: Ohce;
+
+  beforeEach(() => {
+    ohce = new Ohce();
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('should say "Bonne journée" during the day', () => {
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+    expect(ohce.byeGreeting()).toBe('Bonne journée');
+  });
+
+  it('should say "Bonne soirée" during the evening/night', () => {
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
+    expect(ohce.byeGreeting()).toBe('Bonne soirée');
   });
 });

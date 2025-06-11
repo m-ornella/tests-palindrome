@@ -14,13 +14,22 @@ class Ohce {
     reverseWord(input) {
         return input.split('').reverse().join('');
     }
-    greeting() {
+    helloGreeting() {
         const hour = new Date().getHours();
         if (hour >= 6 && hour < 18) {
             return "Bonjour";
         }
         else {
             return "Bonsoir";
+        }
+    }
+    byeGreeting() {
+        const hour = new Date().getHours();
+        if (hour >= 6 && hour < 18) {
+            return "Bonne journée";
+        }
+        else {
+            return "Bonne soirée";
         }
     }
 }

@@ -30,17 +30,34 @@ const Ohce_1 = __importDefault(require("../classes/Ohce"));
     });
     (0, globals_1.it)('should say Bonjour during the day', () => {
         jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
-        (0, globals_1.expect)(ohce.greeting()).toBe('Bonjour');
+        (0, globals_1.expect)(ohce.helloGreeting()).toBe('Bonjour');
     });
     (0, globals_1.it)('should say Bonsoir during the night', () => {
         jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
-        (0, globals_1.expect)(ohce.greeting()).toBe('Bonsoir');
+        (0, globals_1.expect)(ohce.helloGreeting()).toBe('Bonsoir');
     });
 });
 (0, globals_1.describe)('bien dit', () => {
     (0, globals_1.it)('should return true for "kayak"', () => {
         const utils = new Ohce_1.default();
         (0, globals_1.expect)(utils.Palindrome('kayak')).toBe('bien dit!');
+    });
+});
+(0, globals_1.describe)('au revoir', () => {
+    let ohce;
+    beforeEach(() => {
+        ohce = new Ohce_1.default();
+    });
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
+    (0, globals_1.it)('should say "Bonne journée" during the day', () => {
+        jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+        (0, globals_1.expect)(ohce.byeGreeting()).toBe('Bonne journée');
+    });
+    (0, globals_1.it)('should say "Bonne soirée" during the evening/night', () => {
+        jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
+        (0, globals_1.expect)(ohce.byeGreeting()).toBe('Bonne soirée');
     });
 });
 //# sourceMappingURL=palindrome.test.js.map
