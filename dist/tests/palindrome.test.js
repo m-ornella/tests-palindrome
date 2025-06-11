@@ -47,5 +47,15 @@ const Ohce_1 = __importDefault(require("../classes/Ohce"));
         const result = ohce.Palindrome('kayak');
         (0, globals_1.expect)(result.startsWith('Bonsoir')).toBe(true);
     });
+    (0, globals_1.it)('should end with "Bonne journée" during the day', () => {
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+        const result = ohce.Palindrome('kayak');
+        (0, globals_1.expect)(result.endsWith('Bonne journée')).toBe(true);
+    });
+    (0, globals_1.it)('should end with "Bonne soirée" during the night', () => {
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
+        const result = ohce.Palindrome('kayak');
+        (0, globals_1.expect)(result.endsWith('Bonne soirée')).toBe(true);
+    });
 });
 //# sourceMappingURL=palindrome.test.js.map

@@ -50,4 +50,17 @@ describe('Palindrome()', () => {
     const result = ohce.Palindrome('kayak');
     expect(result.startsWith('Bonsoir')).toBe(true);
   });
+
+
+  it('should end with "Bonne journée" during the day', () => {
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+    const result = ohce.Palindrome('kayak');
+    expect(result.endsWith('Bonne journée')).toBe(true);
+  });
+
+  it('should end with "Bonne soirée" during the night', () => {
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
+    const result = ohce.Palindrome('kayak');
+    expect(result.endsWith('Bonne soirée')).toBe(true);
+  });
 });
