@@ -25,3 +25,22 @@ describe('reversed word', () => {
     expect(ohce.reverseWord('12345')).toBe('54321');
   });
 });
+
+
+describe('bonjour', () => {
+  let ohce: Ohce;
+
+  beforeEach(() => {
+    ohce = new Ohce();
+  });
+
+  it('should say Bonjour during the day', () => {
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+    expect(ohce.greeting()).toBe('Bonjour');
+  });
+
+  it('should say Bonsoir during the night', () => {
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
+    expect(ohce.greeting()).toBe('Bonsoir');
+  });
+});
