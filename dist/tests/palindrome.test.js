@@ -25,4 +25,18 @@ const Ohce_1 = __importDefault(require("../classes/Ohce"));
         (0, globals_1.expect)(ohce.reverseWord('12345')).toBe('54321');
     });
 });
+(0, globals_1.describe)('bonjour', () => {
+    let ohce;
+    beforeEach(() => {
+        ohce = new Ohce_1.default();
+    });
+    (0, globals_1.it)('should say Bonjour during the day', () => {
+        jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+        (0, globals_1.expect)(ohce.greeting()).toBe('Bonjour');
+    });
+    (0, globals_1.it)('should say Bonsoir during the night', () => {
+        jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
+        (0, globals_1.expect)(ohce.greeting()).toBe('Bonsoir');
+    });
+});
 //# sourceMappingURL=palindrome.test.js.map
