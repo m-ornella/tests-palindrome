@@ -38,4 +38,16 @@ describe('Palindrome()', () => {
     expect(result).toContain('bien dit!');
     expect(result).toContain('Bonne journée');
   });
+
+  it('should start with "Bonjour" during the day', () => {
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+    const result = ohce.Palindrome('kayak');
+    expect(result.startsWith('Bonjour')).toBe(true);
+  });
+
+  it('should start with "Bonsoir" during the night', () => {
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
+    const result = ohce.Palindrome('kayak');
+    expect(result.startsWith('Bonsoir')).toBe(true);
+  });
 });

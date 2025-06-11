@@ -37,5 +37,15 @@ const Ohce_1 = __importDefault(require("../classes/Ohce"));
         (0, globals_1.expect)(result).toContain('bien dit!');
         (0, globals_1.expect)(result).toContain('Bonne journée');
     });
+    (0, globals_1.it)('should start with "Bonjour" during the day', () => {
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+        const result = ohce.Palindrome('kayak');
+        (0, globals_1.expect)(result.startsWith('Bonjour')).toBe(true);
+    });
+    (0, globals_1.it)('should start with "Bonsoir" during the night', () => {
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
+        const result = ohce.Palindrome('kayak');
+        (0, globals_1.expect)(result.startsWith('Bonsoir')).toBe(true);
+    });
 });
 //# sourceMappingURL=palindrome.test.js.map
