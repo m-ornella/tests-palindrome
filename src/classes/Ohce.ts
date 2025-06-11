@@ -1,12 +1,16 @@
 class Ohce {
-  public Palindrome(input: string): boolean {
+ public Palindrome(input: string): string {
     const sanitized = input.toLowerCase().replace(/[^a-z0-9]/g, '');
     const reversed = sanitized.split('').reverse().join('');
-    return sanitized === reversed;
-  }
+    if (sanitized === reversed) {
+     return 'bien dit!';
+    } else {
+     return 'pas palindrome';
+    }
+}
 
   public reverseWord(input: string): string {
-  return input.split('').reverse().join('');
+    return input.split('').reverse().join('');
   }
 
   public greeting(): string {
@@ -17,6 +21,7 @@ class Ohce {
       return "Bonsoir";
     }
   }
+
 }
 
 export default Ohce;

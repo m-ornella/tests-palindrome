@@ -6,15 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const globals_1 = require("@jest/globals");
 const Ohce_1 = __importDefault(require("../classes/Ohce"));
 (0, globals_1.describe)('Palindrome', () => {
-    (0, globals_1.it)('should return true for "kayak"', () => {
+    (0, globals_1.it)('should return "bien dit!" for "kayak"', () => {
         const utils = new Ohce_1.default();
-        (0, globals_1.expect)(utils.Palindrome('kayak')).toBe(true);
+        (0, globals_1.expect)(utils.Palindrome('kayak')).toBe('bien dit!');
     });
-});
-(0, globals_1.describe)('nest pas un Palindrome', () => {
-    (0, globals_1.it)('should return false for "plastique"', () => {
+    (0, globals_1.it)('should return "pas palindrome" for "plastique"', () => {
         const utils = new Ohce_1.default();
-        (0, globals_1.expect)(utils.Palindrome('plastique')).toBe(false);
+        (0, globals_1.expect)(utils.Palindrome('plastique')).toBe('pas palindrome');
     });
 });
 (0, globals_1.describe)('reversed word', () => {
@@ -37,6 +35,12 @@ const Ohce_1 = __importDefault(require("../classes/Ohce"));
     (0, globals_1.it)('should say Bonsoir during the night', () => {
         jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
         (0, globals_1.expect)(ohce.greeting()).toBe('Bonsoir');
+    });
+});
+(0, globals_1.describe)('bien dit', () => {
+    (0, globals_1.it)('should return true for "kayak"', () => {
+        const utils = new Ohce_1.default();
+        (0, globals_1.expect)(utils.Palindrome('kayak')).toBe('bien dit!');
     });
 });
 //# sourceMappingURL=palindrome.test.js.map

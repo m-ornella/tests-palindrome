@@ -2,16 +2,14 @@ import { describe, it, expect } from '@jest/globals';
 import Ohce from '../classes/Ohce';
 
 describe('Palindrome', () => {
-  it('should return true for "kayak"', () => {
+  it('should return "bien dit!" for "kayak"', () => {
     const utils = new Ohce();
-    expect(utils.Palindrome('kayak')).toBe(true);
+    expect(utils.Palindrome('kayak')).toBe('bien dit!');
   });
-});
 
-describe('nest pas un Palindrome', () => {
-  it('should return false for "plastique"', () => {
+  it('should return "pas palindrome" for "plastique"', () => {
     const utils = new Ohce();
-    expect(utils.Palindrome('plastique')).toBe(false);
+    expect(utils.Palindrome('plastique')).toBe('pas palindrome');
   });
 });
 
@@ -42,5 +40,12 @@ describe('bonjour', () => {
   it('should say Bonsoir during the night', () => {
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
     expect(ohce.greeting()).toBe('Bonsoir');
+  });
+});
+
+describe('bien dit', () => {
+  it('should return true for "kayak"', () => {
+    const utils = new Ohce();
+    expect(utils.Palindrome('kayak')).toBe('bien dit!');
   });
 });
