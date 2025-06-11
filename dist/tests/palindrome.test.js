@@ -17,7 +17,7 @@ const Ohce_1 = __importDefault(require("../classes/Ohce"));
         (0, globals_1.expect)(utils.Palindrome('plastique')).toBe(false);
     });
 });
-(0, globals_1.describe)('Ohce', () => {
+(0, globals_1.describe)('reversed word', () => {
     const ohce = new Ohce_1.default();
     test('reverseWord should return the reversed input string', () => {
         (0, globals_1.expect)(ohce.reverseWord('hello')).toBe('olleh');

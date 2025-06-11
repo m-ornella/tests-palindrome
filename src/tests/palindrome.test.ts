@@ -16,7 +16,7 @@ describe('nest pas un Palindrome', () => {
 });
 
 
-describe('Ohce', () => {
+describe('reversed word', () => {
   const ohce = new Ohce();
 
   test('reverseWord should return the reversed input string', () => {
