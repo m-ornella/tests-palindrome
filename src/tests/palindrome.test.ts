@@ -104,3 +104,39 @@ describe('Palindrome()', () => {
     expect(result.endsWith('Bonne soirée')).toBe(true);
   });
 });
+
+describe('OhceMessageBuilder language support', () => {
+  let builder: OhceMessageBuilder;
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('should return greetings and messages in English when language is set to "en"', () => {
+    // Arrange
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+    builder = new OhceMessageBuilder('en');
+
+    // Act
+    const result = builder.Palindrome('kayak');
+
+    // Assert
+    expect(result).toContain('Hello');          
+    expect(result).toContain('well said!');    
+    expect(result).toContain('Have a nice day'); 
+  });
+
+  it('should return greetings and messages in French when language is set to "fr"', () => {
+    // Arrange
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+    builder = new OhceMessageBuilder('fr'); 
+
+    // Act
+    const result = builder.Palindrome('kayak');
+
+    // Assert
+    expect(result).toContain('Bonjour');
+    expect(result).toContain('bien dit!');
+    expect(result).toContain('Bonne journée');
+  });
+});

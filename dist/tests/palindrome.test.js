@@ -76,4 +76,32 @@ const OhceMessageBuilder_1 = require("../classes/OhceMessageBuilder");
         (0, globals_1.expect)(result.endsWith('Bonne soirée')).toBe(true);
     });
 });
+(0, globals_1.describe)('OhceMessageBuilder language support', () => {
+    let builder;
+    (0, globals_1.afterEach)(() => {
+        globals_1.jest.restoreAllMocks();
+    });
+    (0, globals_1.it)('should return greetings and messages in English when language is set to "en"', () => {
+        // Arrange
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+        builder = new OhceMessageBuilder_1.OhceMessageBuilder('en');
+        // Act
+        const result = builder.Palindrome('kayak');
+        // Assert
+        (0, globals_1.expect)(result).toContain('Hello');
+        (0, globals_1.expect)(result).toContain('well said!');
+        (0, globals_1.expect)(result).toContain('Have a nice day');
+    });
+    (0, globals_1.it)('should return greetings and messages in French when language is set to "fr"', () => {
+        // Arrange
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+        builder = new OhceMessageBuilder_1.OhceMessageBuilder('fr');
+        // Act
+        const result = builder.Palindrome('kayak');
+        // Assert
+        (0, globals_1.expect)(result).toContain('Bonjour');
+        (0, globals_1.expect)(result).toContain('bien dit!');
+        (0, globals_1.expect)(result).toContain('Bonne journée');
+    });
+});
 //# sourceMappingURL=palindrome.test.js.map

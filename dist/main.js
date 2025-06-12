@@ -4,7 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Ohce_1 = __importDefault(require("./classes/Ohce"));
-const ohce = new Ohce_1.default();
+const selectedLanguage = 'en';
+const ohce = new Ohce_1.default(selectedLanguage);
 const word = 'kayak';
 console.log(ohce.Palindrome(word));
 //# sourceMappingURL=main.js.map
