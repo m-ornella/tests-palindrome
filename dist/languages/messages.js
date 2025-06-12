@@ -14,5 +14,17 @@ exports.messages = {
         palindrome: 'well said!',
         notPalindrome: 'not a palindrome',
     },
+    es: {
+        greeting: () => new Date().getHours() >= 6 && new Date().getHours() < 18 ? 'Hola' : 'Buenas noches',
+        farewell: () => new Date().getHours() >= 6 && new Date().getHours() < 18 ? 'Buen dia' : 'Buenas noches',
+        palindrome: 'bien dicho!',
+        notPalindrome: 'no es palíndromo',
+    },
+    de: {
+        greeting: () => new Date().getHours() >= 6 && new Date().getHours() < 18 ? 'Hallo' : 'Guten Abend',
+        farewell: () => new Date().getHours() >= 6 && new Date().getHours() < 18 ? 'Guten Tag' : 'Guten Abend',
+        palindrome: 'gut gesagt!',
+        notPalindrome: 'kein Palindrom',
+    }
 };
 //# sourceMappingURL=messages.js.map

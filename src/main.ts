@@ -1,6 +1,6 @@
 import Ohce from "./classes/Ohce";
 
-const selectedLanguage = 'en';
+const selectedLanguage = 'de';
 
 const ohce = new Ohce(selectedLanguage);
 
