@@ -139,4 +139,16 @@ describe('OhceMessageBuilder language support', () => {
     expect(result).toContain('bien dit!');
     expect(result).toContain('Bonne journée');
   });
+
+  it('should return greetings and messages in German when language is set to "de" at night', () => {
+    // Arrange
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(21);
+    builder = new OhceMessageBuilder('de');
+
+    // Act
+    const result = builder.Palindrome('kayak');
+
+    // Assert
+    expect(result).toContain('Schönen Abend noch');
+  });
 });

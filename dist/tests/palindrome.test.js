@@ -103,5 +103,14 @@ const OhceMessageBuilder_1 = require("../classes/OhceMessageBuilder");
         (0, globals_1.expect)(result).toContain('bien dit!');
         (0, globals_1.expect)(result).toContain('Bonne journée');
     });
+    (0, globals_1.it)('should return greetings and messages in German when language is set to "de" at night', () => {
+        // Arrange
+        globals_1.jest.spyOn(Date.prototype, 'getHours').mockReturnValue(21);
+        builder = new OhceMessageBuilder_1.OhceMessageBuilder('de');
+        // Act
+        const result = builder.Palindrome('kayak');
+        // Assert
+        (0, globals_1.expect)(result).toContain('Schönen Abend noch');
+    });
 });
 //# sourceMappingURL=palindrome.test.js.map
