@@ -13,8 +13,13 @@ describe('Palindrome()', () => {
   });
 
   it('should return full response with "bien dit!" for a palindrome during the day', () => {
+    // Arrange
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+
+    // Act
     const result = ohce.Palindrome('kayak');
+
+    // Assert
     expect(result).toContain('Bonjour');
     expect(result).toContain('kayak');
     expect(result).toContain('bien dit!');
@@ -22,8 +27,13 @@ describe('Palindrome()', () => {
   });
 
   it('should return full response with "pas palindrome" during the night', () => {
+    // Arrange
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22); 
+
+    // Act
     const result = ohce.Palindrome('plastique');
+
+    // Assert
     expect(result).toContain('Bonsoir');
     expect(result).toContain('euqitsalp'); 
     expect(result).toContain('pas palindrome');
@@ -31,8 +41,14 @@ describe('Palindrome()', () => {
   });
 
   it('should return correct reversed string and greetings for numeric palindrome', () => {
-    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(14); 
+
+    // Arrange
+    jest.spyOn(Date.prototype, 'getHours').mockReturnValue(14);
+    
+    // Act
     const result = ohce.Palindrome('12321');
+
+    // Assert
     expect(result).toContain('Bonjour');
     expect(result).toContain('12321');
     expect(result).toContain('bien dit!');
@@ -40,27 +56,51 @@ describe('Palindrome()', () => {
   });
 
   it('should start with "Bonjour" during the day', () => {
+
+    // Arrange
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+    
+    // Act
     const result = ohce.Palindrome('kayak');
+
+    // Assert
     expect(result.startsWith('Bonjour')).toBe(true);
   });
 
   it('should start with "Bonsoir" during the night', () => {
+
+    // Arrange
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
+
+    // Act
     const result = ohce.Palindrome('kayak');
+
+    // Assert
     expect(result.startsWith('Bonsoir')).toBe(true);
   });
 
 
   it('should end with "Bonne journée" during the day', () => {
+
+    // Arrange
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
+
+    // Act
     const result = ohce.Palindrome('kayak');
+
+    // Assert
     expect(result.endsWith('Bonne journée')).toBe(true);
   });
 
   it('should end with "Bonne soirée" during the night', () => {
+
+    // Arrange
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
+
+    // Act
     const result = ohce.Palindrome('kayak');
+
+    // Assert
     expect(result.endsWith('Bonne soirée')).toBe(true);
   });
 });
