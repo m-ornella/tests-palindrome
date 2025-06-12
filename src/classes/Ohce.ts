@@ -1,38 +1,25 @@
+import { SupportedLanguage } from "../types/SupportedLanguage";
+import { OhceMessageBuilder } from "./OhceMessageBuilder";
+
 class Ohce {
- public Palindrome(input: string): string {
-  const greeting = this.helloGreeting();
-    const reversed = this.reverseWord(input);
-    
-    const sanitized = input.toLowerCase().replace(/[^a-z0-9]/g, '');
-    const reversedSanitized = sanitized.split('').reverse().join('');
-    const palindromeMessage = sanitized === reversedSanitized ? 'bien dit!' : 'pas palindrome';
 
-    const farewell = this.byeGreeting();
+  private language: SupportedLanguage;
 
-    return `${greeting}\n${reversed}\n${palindromeMessage}\n${farewell}`;
-}
-
-  private reverseWord(input: string): string {
-    return input.split('').reverse().join('');
+  constructor(language: SupportedLanguage = 'fr') {
+    this.language = language;
   }
 
-  private helloGreeting(): string {
-    const hour = new Date().getHours();
-    if (hour >= 6 && hour < 18) {
-      return "Bonjour";
-    } else {
-      return "Bonsoir";
-    }
-  }
+  public Palindrome(input: string): string {
+    const builder = new OhceMessageBuilder(this.language);
 
-  private byeGreeting(): string {
-    const hour = new Date().getHours();
-    if (hour >= 6 && hour < 18) {
-      return "Bonne journée";
-    } else {
-      return "Bonne soirée";
-    }
+    return builder
+      .withGreeting()
+      .withReversedWord(input)
+      .withPalindromeStatus(input)
+      .withFarewell()
+      .build();
   }
 }
 
 export default Ohce;
+

@@ -1,11 +1,11 @@
 import { describe, it, expect, beforeEach, afterEach, jest } from '@jest/globals';
-import Ohce from '../classes/Ohce';
+import { OhceMessageBuilder } from '../classes/OhceMessageBuilder';
 
 describe('Palindrome()', () => {
-  let ohce: Ohce;
+  let builder: OhceMessageBuilder;
 
   beforeEach(() => {
-    ohce = new Ohce();
+    builder = new OhceMessageBuilder();
   });
 
   afterEach(() => {
@@ -17,7 +17,7 @@ describe('Palindrome()', () => {
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
 
     // Act
-    const result = ohce.Palindrome('kayak');
+    const result = builder.Palindrome('kayak');
 
     // Assert
     expect(result).toContain('Bonjour');
@@ -31,7 +31,7 @@ describe('Palindrome()', () => {
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22); 
 
     // Act
-    const result = ohce.Palindrome('plastique');
+    const result = builder.Palindrome('plastique');
 
     // Assert
     expect(result).toContain('Bonsoir');
@@ -46,7 +46,7 @@ describe('Palindrome()', () => {
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(14);
     
     // Act
-    const result = ohce.Palindrome('12321');
+    const result = builder.Palindrome('12321');
 
     // Assert
     expect(result).toContain('Bonjour');
@@ -61,7 +61,7 @@ describe('Palindrome()', () => {
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
     
     // Act
-    const result = ohce.Palindrome('kayak');
+    const result = builder.Palindrome('kayak');
 
     // Assert
     expect(result.startsWith('Bonjour')).toBe(true);
@@ -73,7 +73,7 @@ describe('Palindrome()', () => {
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
 
     // Act
-    const result = ohce.Palindrome('kayak');
+    const result = builder.Palindrome('kayak');
 
     // Assert
     expect(result.startsWith('Bonsoir')).toBe(true);
@@ -86,7 +86,7 @@ describe('Palindrome()', () => {
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(10);
 
     // Act
-    const result = ohce.Palindrome('kayak');
+    const result = builder.Palindrome('kayak');
 
     // Assert
     expect(result.endsWith('Bonne journée')).toBe(true);
@@ -98,7 +98,7 @@ describe('Palindrome()', () => {
     jest.spyOn(Date.prototype, 'getHours').mockReturnValue(22);
 
     // Act
-    const result = ohce.Palindrome('kayak');
+    const result = builder.Palindrome('kayak');
 
     // Assert
     expect(result.endsWith('Bonne soirée')).toBe(true);
